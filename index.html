@@ -807,6 +807,182 @@ fieldset.step-f>.sub{color:var(--lichen);margin-bottom:40px;font-size:16px}
   .ph-hero{min-height:60vh}
   .brand img{height:50px}
 }
+/* =========================================================
+   MOBILE HOMEPAGE (phones up to 640px, homepage only)
+   Desktop and tablet are untouched: every rule below sits inside
+   the media query and is scoped to body.pg-home.
+   ========================================================= */
+.bchips,.rail-prog{display:none}
+@media (max-width:640px){
+  /* header: slimmer, tucks away on scroll down, returns on scroll up */
+  body.pg-home header.site{transition:background .3s,box-shadow .3s,transform .4s cubic-bezier(.2,.7,.2,1)}
+  body.pg-home header.site .wrap{height:64px}
+  body.pg-home header.site .brand img{height:40px}
+  body.pg-home.hdr-up header.site:not(.open){transform:translateY(-100%)}
+  body.pg-home .mnav.open{inset:64px 0 0}
+
+  /* rhythm */
+  body.pg-home{padding-bottom:0}
+  body.pg-home section.s{padding:72px 0}
+  body.pg-home .sec-title{margin-bottom:40px}
+  body.pg-home .sec-title h2,body.pg-home .scroller-head h2{font-size:clamp(31px,8.6vw,36px);line-height:1.1}
+  body.pg-home .sec-title .lede{font-size:16px;line-height:1.65;margin-top:16px}
+  body.pg-home .eyebrow{font-size:14px;margin-bottom:10px}
+  body.pg-home .rule{margin-top:18px}
+  body.pg-home p.center[style]{margin-top:32px!important}
+  body.pg-home p.center .btn{width:100%}
+
+  /* hero: full screen, copy anchored in the thumb zone */
+  body.pg-home .hero{min-height:100vh;min-height:100svh;max-height:none}
+  body.pg-home .hero>img{object-position:58% 50%}
+  body.pg-home .hero::after{background:linear-gradient(180deg,rgba(14,29,22,.6) 0%,rgba(14,29,22,0) 16%),linear-gradient(0deg,rgba(14,29,22,.96) 0%,rgba(14,29,22,.6) 42%,rgba(14,29,22,0) 72%)}
+  body.pg-home .hero .wrap{gap:0;padding-bottom:28px}
+  body.pg-home .hero h1{font-size:clamp(35px,10.3vw,44px);line-height:1.06;max-width:none;letter-spacing:-.015em}
+  body.pg-home .hero .lede{font-size:16px;line-height:1.6;margin-top:16px}
+  body.pg-home .hero .lede .m-x{display:none}
+  body.pg-home .hero .acts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+  body.pg-home .hero .acts .btn{height:52px;padding:0 8px;font-size:15px;letter-spacing:.01em}
+  body.pg-home .film-cta{width:100%;gap:14px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.18)}
+  body.pg-home .film-cta .ring{width:44px;height:44px}
+  body.pg-home .film-cta .ring svg{width:14px;height:14px;margin-left:3px}
+  body.pg-home .film-cta span{font-size:13px}
+  body.pg-home .film-cta b{font-size:15px}
+
+  /* trust strip: compact 2 x 2 */
+  body.pg-home .trust .wrap{grid-template-columns:1fr 1fr;gap:0;padding:0}
+  body.pg-home .trust div{flex-direction:column;align-items:flex-start;gap:10px;padding:20px var(--gut);font-size:13.5px;line-height:1.4;border-left:0;border-top:0}
+  body.pg-home .trust div:nth-child(even){border-left:1px solid var(--line-dark)}
+  body.pg-home .trust div:nth-child(n+3){border-top:1px solid var(--line-dark)}
+  body.pg-home .trust svg{width:22px;height:22px}
+
+  /* why: icon rows instead of tall stacked tiles */
+  body.pg-home .why4 .w{display:grid;grid-template-columns:36px 1fr;column-gap:16px;padding:26px 0;border-top:0}
+  body.pg-home .why4 .w+.w{border-top:1px solid var(--line)}
+  body.pg-home .why4 .w>*:not(svg){grid-column:2}
+  body.pg-home .why4 svg{width:28px;height:28px;margin:2px 0 0;grid-row:1 / span 2}
+  body.pg-home .why4 h4{font-size:21px}
+  body.pg-home .why4 p{margin-top:6px;font-size:15px;line-height:1.6}
+
+  /* path builder: tappable place chips under the map */
+  body.pg-home .builder{grid-template-columns:minmax(0,1fr)}
+  body.pg-home .builder>*{min-width:0}
+  body.pg-home .bchips{display:flex;gap:8px;overflow-x:auto;padding:12px 14px;background:var(--ivory);border-top:1px solid var(--line);scrollbar-width:none;scroll-snap-type:x proximity;scroll-padding:0 14px}
+  body.pg-home .bchips::-webkit-scrollbar{display:none}
+  body.pg-home .bchip{flex:none;scroll-snap-align:start;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--sand);background:transparent;font-size:14px;font-weight:500;color:var(--ink);cursor:pointer;white-space:nowrap}
+  body.pg-home .bchip b{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--ember);color:#fff;font-size:11px;font-weight:600}
+  body.pg-home .bchip.cur{background:var(--forest);border-color:var(--forest);color:#fff}
+  body.pg-home .bpanel .pbody{padding:24px 20px 0}
+  body.pg-home .bpanel .pbody h3{font-size:27px}
+  body.pg-home .bpanel .pbody .lede{font-size:16px}
+  body.pg-home .bpanel .pacts{justify-content:space-between}
+  body.pg-home .bpanel .pacts .btn{flex:1;max-width:220px}
+  body.pg-home .ytot .acts{width:100%;flex-wrap:nowrap}
+  body.pg-home .ytot .acts .btn{flex:1}
+
+  /* featured film: edge to edge, with the two stills overlapping below */
+  body.pg-home .vfeat{margin:0 calc(-1 * var(--gut));padding:4px 0 150px}
+  body.pg-home .vfeat .vslot{border-radius:0}
+  body.pg-home .vfeat .ov{display:block;border-width:4px}
+  body.pg-home .vfeat .ov.l{left:var(--gut);right:auto;top:auto;bottom:0;width:44%;aspect-ratio:4/5;z-index:4}
+  body.pg-home .vfeat .ov.r{right:var(--gut);left:auto;top:auto;bottom:34px;width:48%;aspect-ratio:4/3;z-index:3}
+  body.pg-home .vfeat+p.center[style]{margin-top:36px!important}
+
+  /* reviews */
+  body.pg-home .rev .stars{margin-bottom:20px}
+  body.pg-home .rev blockquote{font-size:23px;line-height:1.42}
+  body.pg-home .rev cite{margin-top:22px}
+  body.pg-home .rev .ctl{margin-top:28px}
+  body.pg-home .platforms{grid-template-columns:repeat(3,1fr);margin-top:44px}
+  body.pg-home .platforms a{padding:18px 2px;font-size:14px}
+  body.pg-home .platforms a span{font-size:11.5px;margin-top:4px}
+  body.pg-home .platforms a+a{border-left:1px solid var(--line);border-top:0}
+
+  /* destinations: two-up portrait tiles */
+  body.pg-home .dgrid{grid-template-columns:1fr 1fr;gap:10px}
+  body.pg-home .dcard{aspect-ratio:3/4}
+  body.pg-home .dcard .t{left:14px;right:14px;bottom:14px}
+  body.pg-home .dcard h3{font-size:20px;line-height:1.1}
+  body.pg-home .dcard p{font-size:12px;line-height:1.35;margin-top:5px}
+  body.pg-home .dcard .go{display:none}
+
+  /* swipe rails: experiences and journeys */
+  body.pg-home .scroller-head{margin-bottom:28px}
+  body.pg-home .scroller,body.pg-home #trips{display:grid;grid-auto-flow:column;grid-template-columns:none;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(-1 * var(--gut));padding:0 var(--gut) 4px;scroll-padding:0 var(--gut);-webkit-overflow-scrolling:touch}
+  body.pg-home .scroller{grid-auto-columns:78%}
+  body.pg-home #trips{grid-auto-columns:86%}
+  body.pg-home #trips::-webkit-scrollbar{display:none}
+  body.pg-home #trips>*{scroll-snap-align:start}
+  body.pg-home .xcard .xi{aspect-ratio:4/5}
+  body.pg-home .xcard h3{font-size:23px;margin-top:16px}
+  body.pg-home .xcard p{font-size:14.5px}
+  body.pg-home .rail-prog{display:block;position:relative;height:2px;margin-top:28px;background:var(--line);overflow:hidden;border-radius:2px}
+  body.pg-home .rail-prog i{position:absolute;left:0;top:0;bottom:0;width:30%;background:var(--ink)}
+  body.pg-home #trips .jimg{aspect-ratio:4/3}
+  body.pg-home #trips .body{padding-top:18px}
+  body.pg-home #trips h3{font-size:25px}
+  body.pg-home #trips .sum{font-size:15px;line-height:1.6;margin-bottom:20px}
+  body.pg-home #trips .from{padding-top:16px}
+  body.pg-home #trips .from .p b{font-size:26px}
+  body.pg-home .tbul{gap:8px 18px;margin:-16px 0 32px;font-size:13px}
+  body.pg-home .tbul svg{width:15px;height:15px}
+
+  /* quick planner band */
+  body.pg-home .hero2{min-height:0}
+  body.pg-home .hero2::after{background:linear-gradient(180deg,rgba(10,22,16,.6) 0%,rgba(10,22,16,.86) 100%)}
+  body.pg-home .hero2 .wrap{padding-top:80px;padding-bottom:80px}
+  body.pg-home .hero2 .lede{font-size:16px}
+  body.pg-home .qplan{margin-top:28px}
+  body.pg-home .qplan .qf{padding:12px 18px}
+  body.pg-home .qplan select{height:36px}
+  body.pg-home .qplan .btn{min-height:58px}
+
+  /* how to book: vertical timeline */
+  body.pg-home .howto{grid-template-columns:1fr;row-gap:0}
+  body.pg-home .hstep{display:grid;grid-template-columns:52px 1fr;column-gap:18px;align-content:start;text-align:left;padding:0 0 30px}
+  body.pg-home .hstep>*:not(.hn){grid-column:2}
+  body.pg-home .hstep .hn{width:52px;height:52px;margin:0;grid-row:1 / span 3}
+  body.pg-home .hstep .hn svg{width:22px;height:22px}
+  body.pg-home .hstep::before,body.pg-home .hstep:first-child::before{display:block;top:52px;bottom:0;left:26px;right:auto;width:1px;height:auto}
+  body.pg-home .hstep:last-child{padding-bottom:0}
+  body.pg-home .hstep:last-child::before{display:none}
+  body.pg-home .hstep .when{margin-top:4px}
+  body.pg-home .hstep h4{font-size:22px;margin-top:2px}
+  body.pg-home .hstep p{font-size:15px;margin-top:6px}
+  body.pg-home .contact-strip{margin-top:44px}
+  body.pg-home .contact-strip a{padding:18px 20px}
+
+  /* guides: editorial list */
+  body.pg-home #guides{grid-template-columns:1fr;row-gap:0!important;gap:0}
+  body.pg-home #guides .gcard{display:grid;grid-template-columns:104px 1fr;grid-template-rows:auto auto 1fr;column-gap:16px;align-content:start;padding:18px 0;border-top:1px solid var(--line)}
+  body.pg-home #guides .gcard:last-child{border-bottom:1px solid var(--line)}
+  body.pg-home #guides .gi{grid-row:1 / span 3;aspect-ratio:1;align-self:start}
+  body.pg-home #guides .gcard>*:not(.gi){grid-column:2}
+  body.pg-home #guides .gcard .meta{margin-top:0;font-size:12.5px}
+  body.pg-home #guides .gcard h3{font-size:19px;line-height:1.22;margin-top:4px}
+  body.pg-home #guides .gcard p:not(.meta){display:none}
+  body.pg-home #guides .gcard .tlink{margin-top:10px;font-size:14px;justify-self:start}
+
+  /* closing call to action */
+  body.pg-home .final{gap:22px}
+  body.pg-home .final .mark{width:84px;height:84px}
+  body.pg-home .final .mark img{height:48px}
+  body.pg-home .final .lede{font-size:16px;margin-top:14px}
+  body.pg-home .final .acts{display:grid;grid-template-columns:1fr;gap:10px;width:100%}
+  body.pg-home .final .acts .btn{width:100%}
+
+  /* quick-contact bar: hidden over the hero and the closing CTA */
+  body.pg-home .mbar{grid-template-columns:auto 1fr;gap:10px;padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom));background:rgba(16,34,26,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 -1px 0 var(--line-dark);transform:translateY(110%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+  body.pg-home.mb-on .mbar{transform:none}
+  body.pg-home .mbar a{height:48px;border-radius:var(--r);font-size:15px;letter-spacing:.01em}
+  body.pg-home .mbar .m1{background:transparent;border:1px solid rgba(255,255,255,.3);padding:0 18px;color:#fff}
+  body.pg-home .mbar .m1 svg{color:#3ED07A}
+  body.pg-home .mbar .m2{background:var(--amber);color:var(--night)}
+
+  /* gentle reveal as sections arrive */
+  body.pg-home.rv-on .rv{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  body.pg-home.rv-on .rv.in{opacity:1;transform:none}
+  body.pg-home.rv-on .dgrid .dcard.rv:nth-child(even){transition-delay:.08s}
+}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .drawn .leg-road{stroke-dashoffset:0}.drawn .leg-fly,.drawn .stop{opacity:1}
@@ -1461,7 +1637,8 @@ function builderPanel(){
         <div class="acts">${bSel.length?'<button class="arrow" data-clear aria-label="Clear my path" title="Clear">'+ic('<path d="M6 6l12 12M18 6 6 18"/>',1.6)+'</button>':''}<a class="btn btn-amber btn-sm" href="#/apply?route=${bSel.join(',')}" ${bSel.length?'':'aria-disabled="true" tabindex="-1" style="opacity:.45;pointer-events:none"'} data-track="builder_request">Request this route</a></div></div>
     </div>`;
 }
-function renderBuilder(){const m=$('#bmap'),p=$('#bpanel');if(!m)return;m.innerHTML=builderMap();p.innerHTML=builderPanel()}
+function builderChips(){return `<div class="bchips" role="group" aria-label="Places on the map">${BUILD.map(b=>{const n=bSel.indexOf(b.k)+1;return `<button type="button" class="bchip ${n?'sel':''} ${bCur===b.k?'cur':''}" data-pin="${b.k}" aria-pressed="${bCur===b.k}">${n?`<b>${n}</b>`:''}${esc(b.name)}</button>`}).join('')}</div>`}
+function renderBuilder(){const m=$('#bmap'),p=$('#bpanel');if(!m)return;const c=$('.bchips',m),sl=c?c.scrollLeft:0;m.innerHTML=builderMap()+builderChips();const c2=$('.bchips',m);if(c2)c2.scrollLeft=sl;p.innerHTML=builderPanel()}
 function initHome(){
   bSel=store.get('sp_path')||[];renderBuilder();
   const bd=$('#builder');
@@ -1473,11 +1650,22 @@ function initHome(){
   bd.addEventListener('keydown',e=>{const pin=e.target.closest('[data-pin]');if(pin&&(e.key==='Enter'||e.key===' ')){e.preventDefault();const k=pin.dataset.pin;bCur=k;if(!bSel.includes(k)){bSel=bSel.concat(k);store.set('sp_path',bSel)}renderBuilder();const n=$(`[data-pin="${k}"]`);n&&n.focus()}});
   // reviews
   let ri=0;const show=i=>{ri=(i+REVIEWS.length)%REVIEWS.length;const[q,n,c]=REVIEWS[ri];$('#revq').innerHTML=`&ldquo;${esc(q)}&rdquo;`;$('#revc').innerHTML=`<b>${esc(n)}</b>${esc(c)}`;$('#revd').innerHTML=REVIEWS.map((_,k)=>`<button aria-label="Review ${k+1}" ${k===ri?'aria-current="true"':''} data-ri="${k}"></button>`).join('')};
-  show(0);$('#revp').onclick=()=>show(ri-1);$('#revn').onclick=()=>show(ri+1);$('#revd').onclick=e=>{const b=e.target.closest('[data-ri]');if(b)show(+b.dataset.ri)};
+  show(0);{let tx=0,ty=0;const rv=$('#rev');rv.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});rv.addEventListener('touchend',e=>{if(!MQM.matches)return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.5)show(ri+(dx<0?1:-1))},{passive:true})}
+  $('#revp').onclick=()=>show(ri-1);$('#revn').onclick=()=>show(ri+1);$('#revd').onclick=e=>{const b=e.target.closest('[data-ri]');if(b)show(+b.dataset.ri)};
   // scroller
   $$('[data-scroll]').forEach(b=>b.addEventListener('click',()=>{const s=$('#xscroll');s.scrollBy({left:+b.dataset.scroll*s.clientWidth*.76,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})}));
   // quick planner
   $('#qplan').addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(e.target);sstore.set('sp_quick',{exp:fd.get('exp'),month:fd.get('month'),adults:fd.get('adults')});track('quick_plan',{});location.hash='#/apply'});
+  initHomeMobile();
+}
+/* phone-only homepage behaviour: rail progress and section reveal */
+function initHomeMobile(){
+  $$('.rail-prog').forEach(pg=>{const s=document.getElementById(pg.dataset.rail),i=pg.firstElementChild;if(!s)return;const up=()=>{const w=s.clientWidth/Math.max(1,s.scrollWidth),max=s.scrollWidth-s.clientWidth;i.style.width=(w*100)+'%';i.style.transform=`translateX(${max>0?(s.scrollLeft/max)*(1/w-1)*100:0}%)`};s.addEventListener('scroll',up,{passive:true});requestAnimationFrame(up)});
+  if(!MQM.matches||matchMedia('(prefers-reduced-motion:reduce)').matches||!('IntersectionObserver' in window))return;
+  const els=$$('#app .sec-title,#app .scroller-head,#app .why4 .w,#app .builder,#app .rev,#app .platforms,#app .dgrid .dcard,#app .tbul,#app .hstep,#app .contact-strip,#app #guides .gcard,#app .final>*');
+  document.body.classList.add('rv-on');
+  rvObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rvObs.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(el=>{el.classList.add('rv');rvObs.observe(el)});
 }
 document.addEventListener('click',e=>{
   const s=e.target.closest('[data-still]');if(s){const m=document.createElement('div');m.className='modal';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.innerHTML=`<div class="ibox"><button class="x" aria-label="Close">&times;</button>${img(s.dataset.still,'')}</div>`;document.body.appendChild(m);const close=()=>{m.remove();s.focus()};m.addEventListener('click',ev=>{if(ev.target===m||ev.target.closest('.x'))close()});m.addEventListener('keydown',ev=>{if(ev.key==='Escape')close()});$('.x',m).focus();return}
@@ -1494,7 +1682,7 @@ home(){
     <div class="wrap">
       <div class="hero-in">
         <h1>Curated luxury safaris through the Pearl of Africa &amp; beyond</h1>
-        <p class="lede">Private journeys to Uganda's mountain gorillas, chimpanzee forests and wild northern plains, with Kenya and Tanzania a short flight away. Planned around you by local experts in Kampala.</p>
+        <p class="lede">Private journeys to Uganda's mountain gorillas, chimpanzee forests and wild northern plains, with Kenya and Tanzania a short flight away.<span class="m-x"> Planned around you by local experts in Kampala.</span></p>
         <div class="acts"><a class="btn btn-amber" href="#/apply" data-track="apply_click">Start planning</a><a class="btn btn-ghost" href="#/journeys">Explore journeys</a></div>
       </div>
       <button class="film-cta" data-video="welcome"><span class="ring">${PLAY}</span><span><b>Watch the film</b>Welcome to Stonepath</span></button>
@@ -1552,6 +1740,7 @@ home(){
     <div class="scroller-head"><div><p class="eyebrow">Bespoke experiences</p><h2>Moments to build a journey around</h2></div>
       <div class="acts"><button class="arrow" data-scroll="-1" aria-label="Scroll back">${ICON.left}</button><button class="arrow" data-scroll="1" aria-label="Scroll forward">${ICON.right}</button></div></div>
     <div class="scroller" id="xscroll">${xs.map(([k,im])=>{const x=EXPERIENCES[k];return `<a class="xcard" href="#/experience/${k}"><div class="xi ${im?'':'forest'}">${im?img(im,x.name,'loading="lazy"'):`<span class="ring">${PLAY}</span>`}</div><h3>${esc(x.name)}</h3><p>${esc(x.line)}</p></a>`}).join('')}</div>
+    <div class="rail-prog" data-rail="xscroll" aria-hidden="true"><i></i></div>
   </div></section>
 
   <section class="hero2">${img('springs','Sunrise over the hot springs boardwalk in Semuliki','loading="lazy"')}
@@ -1570,7 +1759,8 @@ home(){
   <section class="s pap"><div class="wrap">
     <div class="sec-title"><p class="eyebrow">Sample journeys</p><h2>Trips to inspire</h2><hr class="rule"><p class="lede">Each one is a starting point with a guide price, so you know where you stand before we talk.</p></div>
     <div class="tbul"><span>${ICON.check}Tailor-made itineraries</span><span>${ICON.check}Permits included</span><span>${ICON.check}Private guide throughout</span></div>
-    <div class="g g3" style="row-gap:56px">${trips.map(journeyCard).join('')}</div>
+    <div class="g g3" id="trips" style="row-gap:56px">${trips.map(journeyCard).join('')}</div>
+    <div class="rail-prog" data-rail="trips" aria-hidden="true"><i></i></div>
     <p class="center" style="margin-top:56px"><a class="btn btn-line" href="#/journeys">View all journeys</a></p>
   </div></section>
 
@@ -1591,7 +1781,7 @@ home(){
 
   <section class="s pap"><div class="wrap">
     <div class="sec-title"><p class="eyebrow">Travel guides</p><h2>Know before you go</h2><hr class="rule"><p class="lede">Straight answers from our planners on permits, seasons, packing and cost.</p></div>
-    <div class="g g3" style="row-gap:56px">${GUIDES.slice(0,3).map(guideCard).join('')}</div>
+    <div class="g g3" id="guides" style="row-gap:56px">${GUIDES.slice(0,3).map(guideCard).join('')}</div>
     <p class="center" style="margin-top:56px"><a class="btn btn-line" href="#/guides">All travel guides</a></p>
   </div></section>
 
@@ -1986,7 +2176,7 @@ function thanksPage(){
 /* =========================================================
    ROUTER
    ========================================================= */
-let mapObs;
+let mapObs,rvObs=null,lastY=0;const MQM=matchMedia('(max-width:640px)');
 function route(){
   const raw=location.hash.replace(/^#\/?/,''),[path,qs]=raw.split('?'),q=new URLSearchParams(qs||''),parts=path.split('/').filter(Boolean),name=parts[0]||'home',arg=parts[1];
   const fn=pages[name]||pages.notfound;
@@ -2005,8 +2195,9 @@ function route(){
   const jb=$('#jbar');
   if(name==='journey'&&jBy(arg)){const j=jBy(arg);document.body.classList.add('has-jbar');jb.innerHTML=`<div class="wrap"><span class="t">${esc(j.title)}</span><span class="p">${j.days} days, from <b>${money(j.price[0])}</b> per person</span><a class="btn btn-amber btn-sm" href="#/apply?journey=${j.slug}" data-track="apply_click">Request this journey</a></div>`}
   else{document.body.classList.remove('has-jbar');jb.innerHTML='';jb.classList.remove('show')}
+  document.body.classList.toggle('pg-home',name==='home');document.body.classList.remove('hdr-up','mb-on','rv-on');if(rvObs){rvObs.disconnect();rvObs=null}lastY=0;
   if(name==='apply')initApply();
-  if(name==='home')initHome();
+  if(name==='home')initHome();onScroll();
   $$('[data-f]').forEach(b=>b.addEventListener('click',()=>{const p=new URLSearchParams(qs||'');p.set(b.dataset.f,b.dataset.v);if(b.dataset.v==='all')p.delete(b.dataset.f);location.hash='#/'+name+(p.toString()?'?'+p:'')}));
   // draw route when visible
   if(mapObs)mapObs.disconnect();
@@ -2019,6 +2210,12 @@ function onScroll(){
   $('#hdr').classList.toggle('solid',scrollY>40);
   const jb=$('#jbar');if(document.body.classList.contains('has-jbar')){const show=scrollY>innerHeight*.6;jb.classList.toggle('show',show);$('.wa-float').classList.toggle('lift',show)}
   if(window.__sn)window.__sn();
+  if(document.body.classList.contains('pg-home')&&MQM.matches){
+    const y=scrollY,b=document.body;
+    if(Math.abs(y-lastY)>6){b.classList.toggle('hdr-up',y>lastY&&y>innerHeight*.9&&!$('#hdr').classList.contains('open'));lastY=y}
+    const f=$('#app .final'),endTop=f?f.getBoundingClientRect().top:Infinity;
+    b.classList.toggle('mb-on',y>innerHeight*.75&&endTop>innerHeight-40);
+  }
 }
 addEventListener('scroll',onScroll,{passive:true});
 $('.menu-btn').addEventListener('click',e=>{const o=$('.mnav').classList.toggle('open');$('#hdr').classList.toggle('open',o);e.currentTarget.setAttribute('aria-expanded',o)});
